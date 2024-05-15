@@ -84,7 +84,7 @@ if st.sidebar.button('Calculate'):
     st.write(f"Amount to be raised in the next funding round: ${next_round_capital:.2f}")
 
 # Load and display the QR code image
-qr_code_image = Image.open('bit.ly_financingx.jpg')
+qr_code_image = Image.open('bit.ly_financingx.png')
 st.image(qr_code_image, caption='Scan this QR code to open the app on a mobile device')
 
 
