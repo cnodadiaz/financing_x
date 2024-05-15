@@ -6,10 +6,9 @@ from io import BytesIO
 def get_image_base64(image_path):
     img = Image.open(image_path)
     buffered = BytesIO()
-    img.save(buffered, format="JPEG")
+    img.save(buffered, format="PNG")
     img_str = base64.b64encode(buffered.getvalue()).decode()
     return img_str
-
 
 # Function to perform the calculations
 def calculate_valuation(raise_amount, alimit, interest, time_months, next_round_capital, equity_trade_next_round):
@@ -95,17 +94,15 @@ if st.sidebar.button('Calculate'):
 # Convert the QR code image to base64
     qr_code_image_base64 = get_image_base64('bit.ly_financingx.png')
 
-    # Display the QR code image with CSS styling
+# Display the QR code image with CSS styling
     st.markdown(
         f"""
         <div style="text-align: right;">
-            <img src="data:image/jpeg;base64,{qr_code_image_base64}" style="width: 25%; margin-right: 0;">
+            <img src="data:image/png;base64,{qr_code_image_base64}" style="width: 25%; margin-right: 0;">
         </div>
         """,
         unsafe_allow_html=True
     )
-
-st.image(qr_code_image, caption='Scan this QR code to open the app on a mobile device')
 
 
 # To run the app, use the following command in the terminal: streamlit run app.py
