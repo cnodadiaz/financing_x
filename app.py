@@ -64,7 +64,7 @@ with st.expander("Description and Explanation"):
     
     - **Interest on Convertible Notes**: We calculate the future value of convertible notes using the interest rate and the period until the next funding round. Thus, we transparently account for the impact of interest accrual.
     
-    - **Next Round Capital Needs**: By inputting the projected capital needs for the next round, startups can base their valuation on actual financial requirements, shifting the focus from speculative valuation methods to a needs-based approach.
+    - **Next Round Capital Needs**: By inputting the projected capital needs for the next round, startups can base their valuation on actual financial requirements, shifting the focus from speculative valuation methods to a needs-based approach. It assumes the sale of 20% equity in the round. 
     
     - **Pre-Money Valuation Calculation**: The capital must be divided by the equity fraction to be traded away in the next round, resulting in the pre-money valuation, providing a realistic valuation grounded in the company's financial goals and investment strategy.
     
