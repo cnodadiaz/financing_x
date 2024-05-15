@@ -55,7 +55,7 @@ with st.expander("Description and Explanation"):
     
     - **Equity Distribution**: Explain the distribution of equity ownership, mainly focusing on the impact of converting notes on investors' equity.
 
-    **Logic of the Process**
+    **About the Process**
 
     - **Initial Capital and Government Contribution**: The notebook gathers input on the initial capital raised from investors and any additional government contributions, like innovation grants. This establishes the startup's base financial status.
     
@@ -65,7 +65,7 @@ with st.expander("Description and Explanation"):
     
     - **Pre-Money Valuation Calculation**: The capital must be divided by the equity fraction to be traded away in the next round, resulting in the pre-money valuation, providing a realistic valuation grounded in the company's financial goals and investment strategy.
     
-    - **Post-Money Valuation**: Adding the new capital raised in the next round to the pre-money valuation gives the post-money valuation. This figure reflects the company's worth immediately after securing new investments, providing a transparent and honest valuation to present to potential investors.
+    - **Post-Money Valuation**: The post-money valuation is calculated by adding the new capital raised in the next round to the pre-money valuation. This figure reflects the company's worth immediately after securing new investments, providing a transparent and honest valuation to present to potential investors.
     
     - **Equity Ownership**: The tool also calculates investors' equity ownership after the convertible notes convert, clarifying the ownership dilution and ensuring the impact on existing and future investors is clear and justifiable.
     """)
