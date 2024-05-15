@@ -1,4 +1,6 @@
 import streamlit as st
+from PIL import Image
+
 
 # Function to perform the calculations
 def calculate_valuation(raise_amount, alimit, interest, time_months, next_round_capital, equity_trade_next_round):
@@ -80,5 +82,10 @@ if st.sidebar.button('Calculate'):
     st.write(f"Value of the convertible note after interest: ${results['convertible_note_value']:.2f}")
     st.write(f"Equity ownership for investors after conversion: {results['equity_ownership_investors'] * 100:.2f}%")
     st.write(f"Amount to be raised in the next funding round: ${next_round_capital:.2f}")
+
+# Load and display the QR code image
+qr_code_image = Image.open('bit.ly_financingx.jpg')
+st.image(qr_code_image, caption='Scan this QR code to open the app on a mobile device')
+
 
 # To run the app, use the following command in the terminal: streamlit run app.py
