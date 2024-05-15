@@ -39,7 +39,8 @@ with st.expander("Description and Explanation"):
     st.markdown("""
     **Startup Fundraising Financial Model (Featuring ALMIs Innovationstöd)**
 
-    The tool helps clarify the company's valuation by focusing on capital needs rather than relying on speculative or arbitrary factors. Using this tool, startups can transparently demonstrate how their projected capital requirements align with their strategic growth plans and fundraising goals.
+        The tool clarifies the company's valuation by focusing on capital needs rather than relying on speculative or arbitrary factors. 
+        Startups can transparently demonstrate how their projected capital requirements align with their strategic growth plans and fundraising goals using this tool.
 
     **Purpose**
     
@@ -67,26 +68,26 @@ with st.expander("Description and Explanation"):
     
     - **Pre-Money Valuation Calculation**: The capital must be divided by the equity fraction to be traded away in the next round, resulting in the pre-money valuation, providing a realistic valuation grounded in the company's financial goals and investment strategy.
     
-    - **Post-Money Valuation**: Adding the new capital raised in the next round to the pre-money valuation gives the post-money valuation. This figure reflects the company's worth immediately after securing new investments, providing a transparent and honest valuation to present to potential investors.
+    - **Post-Money Valuation**: The post-money valuation is calculated by adding the new capital raised in the next round to the pre-money valuation. This figure reflects the company's worth immediately after securing new investments, providing a transparent and honest valuation to present to potential investors.
     
-    - **Equity Ownership**: The tool also calculates investors' equity ownership after the convertible notes convert, clarifying the ownership dilution and ensuring that the impact on existing and future investors is clear and justifiable.
+    - **Equity Ownership**: The tool also calculates investors' equity ownership after the convertible notes convert, clarifying the ownership dilution and ensuring the impact on existing and future investors is clear and justifiable.
     """)
 
 st.sidebar.header('Input Parameters')
 raise_amount = st.sidebar.number_input('Amount raised from investors ($)', min_value=0.0, format='%f')
-alimit = st.sidebar.number_input('Upper limit for the government innovation loan ($)', min_value=0.0, format='%f')
-interest = st.sidebar.number_input('Interest rate for the bank loan (%)', min_value=0.0, format='%f') / 100
+alimit = st.sidebar.number_input('Upper limit for the government innovation grant ($)', min_value=0.0, format='%f')
+interest = st.sidebar.number_input('Bank loan (or note) interest rate (%)', min_value=0.0, format='%f') / 100
 time_months = st.sidebar.number_input('Time (in months) until the next funding round', min_value=1, step=1)
 next_round_capital = st.sidebar.number_input('Projected capital needs for the next round ($)', min_value=0.0, format='%f')
-discount_rate = st.sidebar.number_input('Discount rate for early investors (%)', min_value=0.0, max_value=100.0, format='%f') / 100
+discount_rate = st.sidebar.number_input('Discount rate for early investors, i.e., uppon conversion (%)', min_value=0.0, max_value=100.0, format='%f') / 100
 equity_trade_next_round = 0.20
 
 if st.sidebar.button('Calculate'):
     results = calculate_valuation(raise_amount, alimit, interest, time_months, next_round_capital, equity_trade_next_round, discount_rate)
 
     st.subheader('Results')
-    st.write(f"Initial capital raised from investors: ${raise_amount:.2f}")
-    st.write(f"Government's contribution (limited to ALIMIT): ${results['gov_contribution']:.2f}")
+    st.write(f"Initial capital raised from investors, e.g. convertible note: ${raise_amount:.2f}")
+    st.write(f"Government's contribution (e.g., Tillväxtverket): ${results['gov_contribution']:.2f}")
     st.write(f"Total capital for the startup: ${results['total_capital']:.2f}")
     st.write(f"Pre-money valuation for the next round: ${results['pre_money_valuation']:.2f}")
     st.write(f"Post-money valuation after next round: ${results['post_money_valuation']:.2f}")
