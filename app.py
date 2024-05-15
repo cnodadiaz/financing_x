@@ -39,8 +39,8 @@ with st.expander("Description and Explanation"):
     st.markdown("""
     **Startup Fundraising Financial Model (Featuring ALMIs Innovationstöd)**
 
-        The tool clarifies the company's valuation by focusing on capital needs rather than relying on speculative or arbitrary factors. 
-        Startups can transparently demonstrate how their projected capital requirements align with their strategic growth plans and fundraising goals using this tool.
+    The tool clarifies the company's valuation by focusing on capital needs rather than relying on speculative or arbitrary factors. 
+    Startups can transparently demonstrate how their projected capital requirements align with their strategic growth plans and fundraising goals using this tool.
 
     **Purpose**
     
