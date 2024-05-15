@@ -63,7 +63,7 @@ with st.expander("Description and Explanation"):
 st.sidebar.header('Input Parameters')
 raise_amount = st.sidebar.number_input('Amount raised from investors, e.g. convertible note ($)', min_value=0.0, format='%f')
 alimit = st.sidebar.number_input('Upper limit for the government innovation grant ($)', min_value=0.0, format='%f')
-interest = st.sidebar.number_input('Interest rate for the bank loan (%)', min_value=0.0, format='%f') / 100
+interest = st.sidebar.number_input('Bank loan (or note) interest rate (%)', min_value=0.0, format='%f') / 100
 time_months = st.sidebar.number_input('Time until the next funding round (in months)', min_value=1, step=1)
 next_round_capital = st.sidebar.number_input('Projected capital needs for the next round ($)', min_value=0.0, format='%f')
 equity_trade_next_round = 0.20
