@@ -14,14 +14,18 @@ def calculate_valuation(raise_amount, alimit, interest, time_months, next_round_
     # Adjust the convertible note value for the discount rate
     discounted_value = convertible_note_value / (1 - discount_rate)
     equity_ownership_investors = discounted_value / post_money_valuation
+    
+    # Calculate the additional working capital after the next funding round
+    additional_working_capital = next_round_capital - (convertible_note_value + discounted_value)
 
     return {
-        'gov_contribution': gov_contribution,
-        'total_capital': total_capital,
-        'convertible_note_value': convertible_note_value,
-        'pre_money_valuation': pre_money_valuation,
-        'post_money_valuation': post_money_valuation,
-        'equity_ownership_investors': equity_ownership_investors
+    'gov_contribution': gov_contribution,
+    'total_capital': total_capital,
+    'convertible_note_value': convertible_note_value,
+    'pre_money_valuation': pre_money_valuation,
+    'post_money_valuation': post_money_valuation,
+    'equity_ownership_investors': equity_ownership_investors,
+    'additional_working_capital': additional_working_capital
     }
 
 def get_image_base64(image_path):
@@ -94,6 +98,7 @@ if st.sidebar.button('Calculate'):
     st.write(f"Value of the convertible note after interest: ${results['convertible_note_value']:.2f}")
     st.write(f"Equity ownership for investors after conversion: {results['equity_ownership_investors'] * 100:.2f}%")
     st.write(f"Amount to be raised in the next funding round: ${next_round_capital:.2f}")
+    st.write(f"Additional working capital after the next funding round: ${results['additional_working_capital']:.2f}")
 
     # Convert the QR code image to base64
     qr_code_image_base64 = get_image_base64('bit.ly_financingx.png')
