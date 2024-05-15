@@ -1,5 +1,14 @@
 import streamlit as st
 from PIL import Image
+import base64
+from io import BytesIO
+
+def get_image_base64(image_path):
+    img = Image.open(image_path)
+    buffered = BytesIO()
+    img.save(buffered, format="JPEG")
+    img_str = base64.b64encode(buffered.getvalue()).decode()
+    return img_str
 
 
 # Function to perform the calculations
@@ -83,8 +92,19 @@ if st.sidebar.button('Calculate'):
     st.write(f"Equity ownership for investors after conversion: {results['equity_ownership_investors'] * 100:.2f}%")
     st.write(f"Amount to be raised in the next funding round: ${next_round_capital:.2f}")
 
-# Load and display the QR code image
-qr_code_image = Image.open('bit.ly_financingx.png')
+# Convert the QR code image to base64
+    qr_code_image_base64 = get_image_base64('bit.ly_financingx.png')
+
+    # Display the QR code image with CSS styling
+    st.markdown(
+        f"""
+        <div style="text-align: right;">
+            <img src="data:image/jpeg;base64,{qr_code_image_base64}" style="width: 25%; margin-right: 0;">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 st.image(qr_code_image, caption='Scan this QR code to open the app on a mobile device')
 
 
