@@ -12,7 +12,7 @@ def calculate_valuation(raise_amount, alimit, interest, time_months, next_round_
     post_money_valuation = pre_money_valuation + next_round_capital
 
     # Adjust the convertible note value for the discount rate
-    discounted_value = convertible_note_value * (1 - discount_rate)
+    discounted_value = convertible_note_value / (1 - discount_rate)
     equity_ownership_investors = discounted_value / post_money_valuation
 
     return {
