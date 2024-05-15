@@ -39,9 +39,7 @@ with st.expander("Description and Explanation"):
     st.markdown("""
     **Startup Fundraising Financial Model (Featuring ALMIs Innovationstöd)**
 
-    A simple tool for startups to communicate effectively with investors about their financial planning and valuation.
-
-    It clarifies the company's valuation by focusing on capital needs rather than relying on speculative or arbitrary factors. Using this tool, startups can transparently demonstrate how their projected capital requirements align with their strategic growth plans and fundraising goals.
+    The tool helps clarify the company's valuation by focusing on capital needs rather than relying on speculative or arbitrary factors. Using this tool, startups can transparently demonstrate how their projected capital requirements align with their strategic growth plans and fundraising goals.
 
     **Purpose**
     
@@ -59,7 +57,7 @@ with st.expander("Description and Explanation"):
     
     - **Equity Distribution**: Explain the distribution of equity ownership, mainly focusing on the impact of converting notes on investors' equity.
 
-    **Logic of the Process**
+    **About the Process**
 
     - **Initial Capital and Government Contribution**: The notebook gathers input on the initial capital raised from investors and any additional government contributions, like innovation grants. This establishes the startup's base financial status.
     
