@@ -58,14 +58,14 @@ with st.expander("Description and Explanation"):
     
     - **Post-Money Valuation**: Adding the new capital raised in the next round to the pre-money valuation gives the post-money valuation. This figure reflects the company's worth immediately after securing new investments, providing a transparent and honest valuation to present to potential investors.
     
-    - **Equity Ownership**: The tool also calculates investors' equity ownership after the convertible notes convert, clarifying the ownership dilution and ensuring that the impact on existing and future investors is clear and justifiable.
+    - **Equity Ownership**: The tool also calculates investors' equity ownership after the convertible notes convert, clarifying the ownership dilution and ensuring the impact on existing and future investors is clear and justifiable.
     """)
 
 st.sidebar.header('Input Parameters')
-raise_amount = st.sidebar.number_input('Amount raised from investors ($)', min_value=0.0, format='%f')
-alimit = st.sidebar.number_input('Upper limit for the government innovation loan ($)', min_value=0.0, format='%f')
+raise_amount = st.sidebar.number_input('Amount raised from investors, e.g. convertible note ($)', min_value=0.0, format='%f')
+alimit = st.sidebar.number_input('Upper limit for the government innovation grant ($)', min_value=0.0, format='%f')
 interest = st.sidebar.number_input('Interest rate for the bank loan (%)', min_value=0.0, format='%f') / 100
-time_months = st.sidebar.number_input('Time (in months) until the next funding round', min_value=1, step=1)
+time_months = st.sidebar.number_input('Time until the next funding round (in months)', min_value=1, step=1)
 next_round_capital = st.sidebar.number_input('Projected capital needs for the next round ($)', min_value=0.0, format='%f')
 equity_trade_next_round = 0.20
 
@@ -73,8 +73,8 @@ if st.sidebar.button('Calculate'):
     results = calculate_valuation(raise_amount, alimit, interest, time_months, next_round_capital, equity_trade_next_round)
 
     st.subheader('Results')
-    st.write(f"Initial capital raised from investors: ${raise_amount:.2f}")
-    st.write(f"Government's contribution (limited to ALIMIT): ${results['gov_contribution']:.2f}")
+    st.write(f"Initial capital raised from investors, e.g. convertible note: ${raise_amount:.2f}")
+    st.write(f"Government's contribution (e.g., Tillväxtverket): ${results['gov_contribution']:.2f}")
     st.write(f"Total capital for the startup: ${results['total_capital']:.2f}")
     st.write(f"Pre-money valuation for the next round: ${results['pre_money_valuation']:.2f}")
     st.write(f"Post-money valuation after next round: ${results['post_money_valuation']:.2f}")
